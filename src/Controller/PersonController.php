@@ -9,13 +9,9 @@
 namespace App\Controller;
 
 use App\Entity\Person;
+use App\Form\PersonType;
 use \DateTime;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 class PersonController extends Controller
@@ -31,20 +27,14 @@ class PersonController extends Controller
     public function newPerson(Request $request)
     {
         $person = new Person();
-
-        $form = $this->createFormBuilder($person)
-            ->add('name', TextType::class)
-            ->add('age', IntegerType::class)
-            ->add('createdAt', DateType::class)
-            ->add('visible', CheckboxType::class)
-            ->add('save', SubmitType::class, array('label' => 'Créer'))
-            ->getForm();
-
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(PersonType::class, $person);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
-
+            $em->persist($form);
+            $em->flush();
         }
-        return $this->render('Entity/new.html.twig', array('form' => $form->createView()));
+        return $this->render('Entity/new.html.twig', array('Form' => $form->createView()));
     }
 }
