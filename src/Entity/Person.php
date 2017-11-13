@@ -44,8 +44,7 @@ class Person
      */
     private $visible;
     /**
-     * @var \DateTime
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $created_at;
     /**
@@ -58,7 +57,7 @@ class Person
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -74,7 +73,7 @@ class Person
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -90,7 +89,7 @@ class Person
     /**
      * @return int
      */
-    public function getAge(): int
+    public function getAge()
     {
         return $this->age;
     }
@@ -106,7 +105,7 @@ class Person
     /**
      * @return bool
      */
-    public function isVisible(): bool
+    public function isVisible()
     {
         return $this->visible;
     }
@@ -120,25 +119,27 @@ class Person
     }
 
     /**
-     * @return \DateTime
+     * @return mixed
      */
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt()
     {
         return $this->created_at;
     }
 
     /**
-     * @param \DateTime $created_at
+     * @param mixed $created_at
      */
-    public function setCreatedAt(\DateTime $created_at)
+    public function setCreatedAt($created_at)
     {
         $this->created_at = $created_at;
     }
 
+
+
     /**
      * @return string
      */
-    public function getColor(): string
+    public function getColor()
     {
         return $this->color;
     }

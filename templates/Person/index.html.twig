@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+{% block title %}Person{% endblock %}
+{% block body %}
+    <h1>Index</h1>
+    <br/>
+    <a href="{{ path("newPerson") }}">Nouveau</a>
+
+    <ul>
+        {% for person in persons %}
+            <li>nom: {{ person.name }} , age: {{ person.age }} </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
