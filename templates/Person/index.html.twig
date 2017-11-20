@@ -1,11 +1,13 @@
 {% extends "base.html.twig" %}
 {% block title %}Person{% endblock %}
 {% block body %}
-    <h1>Index</h1>
+    <h1>Index Person</h1>
     <br/>
     <a href="{{ path("newPerson") }}">New Person</a>
     <br/>
     <a href="{{ path("newMaterial") }}">New Material</a>
+    <br/>
+    <a href="{{ path("newInventory") }}">New Inventory</a>
 
     <ul>
         {% for person in persons %}

@@ -42,6 +42,33 @@ class Person
      */
     private $inventories;
 
+    public function __construct()
+    {
+        $this->inventories = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    function __toString()
+    {
+        return $this->getName();
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getInventories()
+    {
+        return $this->inventories;
+    }
+
+    /**
+     * @param mixed $inventories
+     */
+    public function setInventories($inventories)
+    {
+        $this->inventories = $inventories;
+    }
+
     /**
      * @return int
      */

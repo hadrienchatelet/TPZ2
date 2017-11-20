@@ -29,30 +29,14 @@ class Inventory
      */
     private $person;
     /**
+     * @ORM\ManyToOne(targetEntity="Material")
+     * @ORM\JoinColumn(name="material_id", referencedColumnName="id")
+     */
+    private $material;
+    /**
      * @ORM\Column(type="decimal", name="number_of_item")
      */
     private $numberOfItem;
-
-    public function __construct()
-    {
-        $this->inventories = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * @return \Doctrine\Common\Collections\ArrayCollection
-     */
-    public function getInventories()
-    {
-        return $this->inventories;
-    }
-
-    /**
-     * @param \Doctrine\Common\Collections\ArrayCollection $inventories
-     */
-    public function setInventories($inventories)
-    {
-        $this->inventories = $inventories;
-    }
 
     /**
      * @return mixed
@@ -100,6 +84,22 @@ class Inventory
     public function setNumberOfItem($numberOfItem)
     {
         $this->numberOfItem = $numberOfItem;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMaterial()
+    {
+        return $this->material;
+    }
+
+    /**
+     * @param mixed $material
+     */
+    public function setMaterial($material)
+    {
+        $this->material = $material;
     }
 
 
