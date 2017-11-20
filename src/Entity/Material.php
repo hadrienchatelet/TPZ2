@@ -11,11 +11,11 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Person
+ * Class Material
  * @ORM\Entity
- * @ORM\Table(name="person")
+ * @ORM\Table(name="material")
  */
-class Person
+class Material
 {
     /**
      * @var int
@@ -36,7 +36,7 @@ class Person
      *
      * @ORM\Column(type="integer")
      */
-    private $maxWeight;
+    private $weight;
 
     /**
      * @return int
@@ -73,17 +73,17 @@ class Person
     /**
      * @return int
      */
-    public function getMaxWeight()
+    public function getWeight()
     {
-        return $this->maxWeight;
+        return $this->weight;
     }
 
     /**
-     * @param int $maxWeight
+     * @param int $weight
      */
-    public function setMaxWeight($maxWeight)
+    public function setWeight($weight)
     {
-        $this->maxWeight = $maxWeight;
+        $this->weight = $weight;
     }
 
 

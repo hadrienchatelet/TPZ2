@@ -35,6 +35,6 @@ class PersonController extends Controller
             $em->persist($form);
             $em->flush();
         }
-        return $this->render('Entity/new.html.twig', array('Form' => $form->createView()));
+        return $this->render('Entity/new.html.twig', array('form' => $form->createView()));
     }
 }
