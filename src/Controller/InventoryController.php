@@ -25,14 +25,23 @@ class InventoryController extends Controller
 
     public function newInventory(Request $request)
     {
-        $material = new Inventory();
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(InventoryType::class, $material);
+        $inventory = new Inventory();
+        $calculInventory = new \App\Calculate\Inventory($em);
+        $calculInventory->setInventories($inventory);
+        $calculInventory->setPerson($inventory->getPerson());
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(InventoryType::class, $inventory);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
-            $em->persist($material);
-            $em->flush();
+            if ($calculInventory->calcul())
+            {
+                $this->container->get('session')->getFlashBag()->add('success', "L'ajout a été fait !");
+                $em->persist($inventory);
+                $em->flush();
+            }
+
         }
         return $this->render('Entity/new.html.twig', array('form' => $form->createView()));
     }
