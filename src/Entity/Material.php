@@ -85,6 +85,4 @@ class Material
     {
         $this->weight = $weight;
     }
-
-
 }

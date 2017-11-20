@@ -34,7 +34,7 @@ class Person
     /**
      * @var integer
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="max_weight")
      */
     private $maxWeight;
 
