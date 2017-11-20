@@ -37,6 +37,10 @@ class Person
      * @ORM\Column(type="integer", name="max_weight")
      */
     private $maxWeight;
+    /**
+     * @ORM\OneToMany(targetEntity="Inventory", mappedBy="person")
+     */
+    private $inventories;
 
     /**
      * @return int

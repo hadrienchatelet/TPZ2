@@ -3,11 +3,13 @@
 {% block body %}
     <h1>Index</h1>
     <br/>
-    <a href="{{ path("newPerson") }}">Nouveau</a>
+    <a href="{{ path("newPerson") }}">New Person</a>
+    <br/>
+    <a href="{{ path("newMaterial") }}">New Material</a>
 
     <ul>
         {% for person in persons %}
-            <li>nom: {{ person.name }} , age: {{ person.age }} </li>
+            <li>nom: {{ person.name }} , max weight: {{ person.maxWeight }} </li>
         {% endfor %}
     </ul>
 {% endblock %}

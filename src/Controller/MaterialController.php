@@ -8,30 +8,30 @@
 
 namespace App\Controller;
 
-use App\Entity\Person;
-use App\Form\PersonType;
-use Symfony\Component\HttpFoundation\Request;
+use App\Entity\Material;
+use App\Form\MaterialType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
-class PersonController extends Controller
+class MaterialController extends Controller
 {
     public function index()
     {
         $em = $this->getDoctrine()->getManager();
-        $persons = $em->getRepository(Person::class)->findAll();
+        $persons = $em->getRepository(Material::class)->findAll();
 
         return $this->render("Person/index.html.twig", array("persons"=>$persons));
     }
 
-    public function newPerson(Request $request)
+    public function newMaterial(Request $request)
     {
-        $person = new Person();
+        $material = new Material();
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(PersonType::class, $person);
+        $form = $this->createForm(MaterialType::class, $material);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
-            $em->persist($person);
+            $em->persist($material);
             $em->flush();
         }
         return $this->render('Entity/new.html.twig', array('form' => $form->createView()));

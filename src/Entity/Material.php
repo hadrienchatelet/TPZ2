@@ -34,7 +34,7 @@ class Material
     /**
      * @var integer
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="decimal")
      */
     private $weight;
 
@@ -70,17 +70,11 @@ class Material
         $this->name = $name;
     }
 
-    /**
-     * @return int
-     */
     public function getWeight()
     {
         return $this->weight;
     }
 
-    /**
-     * @param int $weight
-     */
     public function setWeight($weight)
     {
         $this->weight = $weight;
