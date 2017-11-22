@@ -235,5 +235,20 @@
     },
     "symfony/validator": {
         "version": "v3.3.11"
+    },
+    "doctrine/data-fixtures": {
+        "version": "v1.2.2"
+    },
+    "doctrine/doctrine-fixtures-bundle": {
+        "version": "2.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.4",
+            "ref": "f2c3a6246cb5f36176f870bdc2e5f5b3cf6c454c"
+        }
+    },
+    "fzaninotto/faker": {
+        "version": "v1.7.1"
     }
 }
