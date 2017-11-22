@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Class Player
  * @ORM\Entity

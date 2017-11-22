@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use Doctrine\ORM\Mapping as ORM;
 /**
  * Class Weapon
  * @ORM\Entity
@@ -25,7 +25,7 @@ class Weapon
     /**
      * @ORM\Column(type="decimal")
      */
-    private $damageDistanceCoeff;
+    private $damageDistanceCoef;
     /**
      * @ORM\Column(type="integer")
      */
@@ -38,11 +38,11 @@ class Weapon
      * @param $damageDistanceCoeff
      * @param $fireRate
      */
-    public function __construct($name, $damage, $damageDistanceCoeff, $fireRate)
+    public function __construct($name, $damage, $damageDistanceCoef, $fireRate)
     {
         $this->name = $name;
         $this->damage = $damage;
-        $this->damageDistanceCoeff = $damageDistanceCoeff;
+        $this->damageDistanceCoef = $damageDistanceCoef;
         $this->fireRate = $fireRate;
     }
 
@@ -73,9 +73,9 @@ class Weapon
     /**
      * @return mixed
      */
-    public function getDamageDistanceCoeff()
+    public function getDamageDistanceCoef()
     {
-        return $this->damageDistanceCoeff;
+        return $this->damageDistanceCoef;
     }
 
     /**
