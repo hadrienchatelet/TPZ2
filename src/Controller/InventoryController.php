@@ -27,7 +27,10 @@ class InventoryController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $inventory = new Inventory();
-        $calculInventory = new \App\Calculate\Inventory($em);
+        //$calculInventory = $this->get(\App\Calculate\Inventory::class);
+        $calculInventory = $this->get(\App\Calculate\Inventory::class);
+        //$calculInventory = $this->get('app.calculate.inventory');
+        $this->getParameter('my_parameter');
         $calculInventory->setInventories($inventory);
         $calculInventory->setPerson($inventory->getPerson());
         $em = $this->getDoctrine()->getManager();

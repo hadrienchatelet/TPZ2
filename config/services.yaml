@@ -2,14 +2,15 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
+    my_parameter: '%env(MY_NAME_IS)%'
 
 services:
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services
-        autowire: false
+        autowire: true
         # automatically registers your services as commands, event subscribers, etc.
-        autoconfigure: false
+        autoconfigure: true
         # this means you cannot fetch services directly from the container via $container->get()
         # if you need to do this, you can override this setting on individual services
         public: false
@@ -27,3 +28,22 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    #App\Calculate\Inventory:
+    #    public : true
+
+#    App\Calculate\Inventory:
+#        arguments: ['@doctrine.orm.entity_manager']
+#        public : true
+#        autowire : false
+
+    #app.calculate.inventory:
+    #    class: \App\Calculate\Inventory
+    #    arguments: '@doctrine.orm.entity_manager'
+    #    public : true
+    #    autowire : false
+
+    App\Calculate\Inventory:
+        arguments: ['@doctrine.orm.entity_manager', '%my_parameter%']
+        public : true
+        autowire : true

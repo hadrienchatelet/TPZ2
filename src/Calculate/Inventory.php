@@ -6,13 +6,15 @@ namespace App\Calculate;
 class Inventory
 {
     private $em;
+    private $myParameter;
     private $person;
     private $inventory;
     /**
      * Inventory constructor.
      */
-    public function __construct(\Doctrine\ORM\EntityManager $em){
+    public function __construct(\Doctrine\ORM\EntityManagerInterface $em, $myParameter){
         $this->em = $em;
+        $this->myParameter = $myParameter;
     }
 
     public function calcul(){
