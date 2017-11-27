@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+{% block title %}Item{% endblock %}
+{% block body %}
+    <h1>Index Item</h1>
+    <br/>
+    <a href="{{ path("newItem") }}">Add an item</a>
+    <br/>
+
+    <ul>
+        {% for item in items %}
+            <li>nom de l'item: {{ item.name }} </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

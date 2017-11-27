@@ -11,11 +11,11 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Material
+ * Class Player
  * @ORM\Entity
- * @ORM\Table(name="material")
+ * @ORM\Table(name="player")
  */
-class Material
+class Player
 {
     /**
      * @var int
@@ -31,18 +31,11 @@ class Material
      * @ORM\Column(type="string", length=40)
      */
     private $name;
-    /**
-     * @var integer
-     *
-     * @ORM\Column(type="decimal")
-     */
-    private $weight;
 
     function __toString()
     {
         return $this->getName();
     }
-
 
     /**
      * @return int
@@ -74,15 +67,5 @@ class Material
     public function setName(string $name)
     {
         $this->name = $name;
-    }
-
-    public function getWeight()
-    {
-        return $this->weight;
-    }
-
-    public function setWeight($weight)
-    {
-        $this->weight = $weight;
     }
 }

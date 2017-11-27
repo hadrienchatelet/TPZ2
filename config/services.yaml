@@ -2,7 +2,6 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
-    my_parameter: '%env(MY_NAME_IS)%'
 
 services:
     # default configuration for services in *this* file
@@ -29,21 +28,8 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
-    #App\Calculate\Inventory:
-    #    public : true
-
-#    App\Calculate\Inventory:
-#        arguments: ['@doctrine.orm.entity_manager']
-#        public : true
-#        autowire : false
-
-    #app.calculate.inventory:
-    #    class: \App\Calculate\Inventory
-    #    arguments: '@doctrine.orm.entity_manager'
-    #    public : true
-    #    autowire : false
-
-    App\Calculate\Inventory:
-        arguments: ['@doctrine.orm.entity_manager', '%my_parameter%']
+    App\Entity\Player:
         public : true
-        autowire : true
+
+    App\Entity\Item:
+            public : true

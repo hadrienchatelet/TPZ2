@@ -11,63 +11,32 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Person
+ * Class Item
  * @ORM\Entity
- * @ORM\Table(name="person")
+ * @ORM\Table(name="item")
  */
-class Person
+class Item
 {
     /**
-     * @var int
-     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
     /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=40)
      */
     private $name;
     /**
-     * @var integer
-     *
-     * @ORM\Column(type="integer", name="max_weight")
+     * @ORM\Column(type="string")
      */
-    private $maxWeight;
-    /**
-     * @ORM\OneToMany(targetEntity="Inventory", mappedBy="person")
-     */
-    private $inventories;
-
-    public function __construct()
-    {
-        $this->inventories = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $typeItem;
 
     function __toString()
     {
         return $this->getName();
     }
 
-
-    /**
-     * @return mixed
-     */
-    public function getInventories()
-    {
-        return $this->inventories;
-    }
-
-    /**
-     * @param mixed $inventories
-     */
-    public function setInventories($inventories)
-    {
-        $this->inventories = $inventories;
-    }
 
     /**
      * @return int
@@ -102,19 +71,19 @@ class Person
     }
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getMaxWeight()
+    public function getTypeItem()
     {
-        return $this->maxWeight;
+        return $this->typeItem;
     }
 
     /**
-     * @param int $maxWeight
+     * @param mixed $typeItem
      */
-    public function setMaxWeight($maxWeight)
+    public function setTypeItem($typeItem)
     {
-        $this->maxWeight = $maxWeight;
+        $this->typeItem = $typeItem;
     }
 
 

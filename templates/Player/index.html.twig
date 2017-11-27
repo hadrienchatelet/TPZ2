@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+{% block title %}Player{% endblock %}
+{% block body %}
+    <h1>Index Player</h1>
+    <br/>
+    <a href="{{ path("newPlayer") }}">Add a player</a>
+    <br/>
+
+    <ul>
+        {% for player in players %}
+            <li>nom: {{ player.name }} <a href="{{ path("show_player", {id: player.id}) }}">plus</a> </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
