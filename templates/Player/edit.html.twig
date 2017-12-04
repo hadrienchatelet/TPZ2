@@ -1,5 +1,5 @@
 {% extends "base.html.twig" %}
 {% block title %}Player{% endblock %}
 {% block body %}
-    Page du profil de : {{ player.name }}, role: {{ player.role }} - money: {{ player.addMoney }}<a href="{{ path("editPlayer", {id: player.id}) }}">Editer</a>
+    Page du profil de : {{ player.name }}, role: {{ player.role }} - money: {{ player.addMoney }}
 {% endblock %}

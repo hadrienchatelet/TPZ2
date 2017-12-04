@@ -72,7 +72,7 @@ class PlayerController extends Controller
             $playerEvent->setPlayer($player);
             $dispatcher = $this->get('event_dispatcher');
             $dispatcher->dispatch(AppEvent::PLAYER_EDIT, $playerEvent);
-            return $this->redirectToRoute('show_player_edited');
+            return $this->redirectToRoute('show_player_edited', array("id"=>$player->getId()));
         }
         return $this->render('Entity/edit.html.twig', array('form' => $form->createView()));
     }
