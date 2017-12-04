@@ -31,5 +31,8 @@ services:
     App\Entity\Player:
         public : true
 
-    App\Entity\Item:
+    App\Event\PlayerEvent:
+        public : true
+
+    App\Event\AppEvent:
             public : true

@@ -1,5 +1,5 @@
 {% extends "base.html.twig" %}
 {% block title %}Player{% endblock %}
 {% block body %}
-    Page du profil de : {{ player.name }}, {{ player.age }} ans, habite en {{ player.country }}
+    Page du profil de : {{ player.name }}, role: {{ player.role }} <a href="{{ path("editPlayer", {id: player.id}) }}">Editer</a>
 {% endblock %}
