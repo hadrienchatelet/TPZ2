@@ -36,20 +36,17 @@ class PlayerController extends Controller
     public function newPlayer(Request $request)
     {
         $player = $this->get(\App\Entity\Player::class);
-        $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(PlayerType::class, $player);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
-            $em->persist($player);
-            $em->flush();
-            return $this->redirect("player");
+
         }
         return $this->render('Entity/new.html.twig', array('form' => $form->createView()));
     }
 
     /**
-     * @Route("/player/{id}", name="show_player")
+     * @Route("/{id}", name="show_player")
      */
     public function show(Player $player)
     {
